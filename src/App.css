@@ -1,0 +1,941 @@
+/* src/App.css */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(#ba9898 2px, transparent 2px),
+    linear-gradient(to right, #ba9898 2px, transparent 2px);
+  background-size: 43px 43px;
+  background-color: #e8e8df;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(240, 240, 240, 0.95);
+  border-radius: 16px;
+  /*  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+h3 {
+  color: #333;
+}
+
+h4 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  /* From https://css.glass */
+  /*  background: rgba(255, 255, 255, 0.5);*/
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /*  backdrop-filter: blur(6.7px);*/
+  /*  -webkit-backdrop-filter: blur(6.7px);*/
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* src/App.css */
+.description {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #464646;
+  border-radius: 5px;
+}
+
+.severityLevel {
+  margin: 10px 0px 20px 0;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+
+  /* From https://css.glass */
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  /*  backdrop-filter: blur(6.7px);*/
+  /*  -webkit-backdrop-filter: blur(6.7px);*/
+  /*  border: 1px solid rgba(255, 255, 255, 0.3);*/
+}
+
+/* src/App.css */
+
+/* Sticky Progress Bar */
+.sticky-progress-bar {
+  position: sticky;
+  bottom: 10px;
+  z-index: 100;
+  padding: 10px;
+
+  /* From https://css.glass */
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  /*  backdrop-filter: blur(6.7px);*/
+  /*  -webkit-backdrop-filter: blur(6.7px);*/
+  /*  border: 1px solid rgba(255, 255, 255, 1);*/
+}
+
+.progress-bar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 20px;
+  /*  background-color: #f8b72bc7;*/
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.scoreSpan {
+  font-size: smaller;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+/* Radio Button Styles */
+.radio-input {
+  display: none; /* Hide the radio button */
+}
+
+.option-label {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-label.selected {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.labelandscore {
+  display: flex;
+  justify-content: space-between; /* This is the key */
+  padding: 0 5px;
+}
+
+.exportButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.action-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 30px;
+  transition: ease-in-out all 0.1s;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.action-button:hover {
+  font-size: 35px;
+  padding: 5px 20px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(83, 83, 83, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top of the viewport */
+  z-index: 1000;
+  overflow-y: scroll; /*Change this to Allow scrolling if the modal is taller than the viewport */
+  overflow-x: clip;
+  margin: auto;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 70vw;
+  text-align: center;
+  transform: translateY(250%);
+}
+
+.modal p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.confirm-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+}
+
+/* Questionnaire Card Styles */
+.questionnaire-list {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+}
+
+.questionnaire-card {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  width: 67vw;
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  /*  backdrop-filter: blur(6.7px);*/
+  /*  -webkit-backdrop-filter: blur(6.7px);*/
+  /*  border: 1px solid rgba(255, 255, 255, 0.3);*/
+
+  display: grid;
+  justify-content: center;
+  margin: 20px;
+  justify-items: center;
+}
+
+.questionnaire-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.questionnaire-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.questionnaire-card p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.start-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+/* Question Description Styles */
+.question-description {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #555;
+}
+
+.questions {
+  padding-bottom: 20px;
+}
+
+/*PANSS TABS*/
+.tabButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.tab-button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px;
+  transition: ease-in-out all 0.1s;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 5px;
+}
+
+.tab-button:hover {
+  font-size: 16px;
+  padding: 5px 20px;
+}
+
+/* Visibility classes */
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.tab-selected {
+  background-color: rgba(38, 38, 38, 0.5);
+  color: whitesmoke;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: A4; /* Set paper size to A4 */
+    margin: 0; /* Remove margins */
+  }
+
+  body {
+    margin: 0; /* Ensure no extra margin */
+    -webkit-print-color-adjust: exact; /* Force background colors and images to print */
+    print-color-adjust: exact; /* Standard property for printing backgrounds */
+  }
+
+  /* Hide headers or other elements you don't want to print */
+  header,
+  .no-print {
+    display: none;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tab-button {
+    font-size: 14px; /* Smaller font size for smaller screens */
+    padding: 8px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .tab-button:hover {
+    font-size: 15px; /* Slightly smaller hover effect for smaller screens */
+    padding: 5px 15px;
+  }
+
+  body {
+    padding: 20px 0;
+  }
+
+  .App {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    font-size: 12px; /* Even smaller font size for mobile devices */
+    padding: 6px 10px; /* Adjust padding for mobile devices */
+  }
+
+  .tab-button:hover {
+    font-size: 13px; /* Smaller hover effect for mobile devices */
+    padding: 4px 10px;
+  }
+
+  body {
+    padding: 20px 0;
+  }
+
+  .App {
+    max-width: 100%;
+  }
+
+  .main-content {
+    padding: 0px !important;
+    overflow: visible !important;
+  }
+}
+
+/* ============================ */
+
+/* Auth styles */
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: whitesmoke;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-container input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.auth-container button {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-container button.create-new-account {
+  padding: 20px 0px;
+  background: none;
+  color: black;
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-container button.create-new-account:hover {
+  color: rgb(97, 90, 201);
+}
+
+.error {
+  color: red;
+}
+
+/* Results History styles */
+.results-history {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.results-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results-history li {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: scroll;
+}
+
+.results-history li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results-history small {
+  color: #666;
+}
+
+/* Logout */
+.logout-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e53935;
+}
+
+.assessment-history {
+  text-align: center;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 300px; /* Slightly wider to accommodate history */
+  background: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #dee2e6;
+  height: 100vh;
+  overflow-y: auto; /* Enable scrolling if content is long */
+  position: absolute;
+  z-index: 999;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.history-section {
+  margin-top: 20px;
+}
+
+.history-section h4 {
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+/* Results History styles */
+.results-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results-history li {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.results-history li:hover {
+  background: #e9ecef;
+  transform: translateX(2px);
+}
+
+.results-history li div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results-history small {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+/* Adjust main content area */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  height: 100vh;
+  overflow: visible !important;
+}
+
+.history-item {
+  position: relative;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background: #f0f0f0;
+}
+
+.edit-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+
+.edit-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form button.save {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-form button.save:hover {
+  background-color: #45a049;
+}
+
+.edit-form button.cancel {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-form button.cancel:hover {
+  background-color: #e53935;
+}
+
+.edit-form-buttons {
+  gap: 20px;
+}
+
+.history-actions {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+.history-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  opacity: 0.7;
+}
+
+.history-actions button:hover {
+  opacity: 1;
+}
+
+.history-content span {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: small;
+}
+
+/* Add to your CSS file */
+.search-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.search-input {
+  width: 80%;
+  padding: 8px 30px 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+.clear-search:hover {
+  color: #666;
+}
+
+.sidebar-toggle-info {
+  position: fixed;
+  left: 80px;
+  top: 20px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  color: #333;
+  border: none;
+  border-radius: 10%;
+  z-index: -1;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* Floating Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: #45a049;
+  transform: scale(1.1);
+}
+
+.sidebar-toggle.open {
+  left: 230px; /* Adjust based on sidebar width */
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  pointer-events: none; /* Allows clicks to pass through when closed */
+}
+
+.sidebar-overlay.open {
+  pointer-events: auto; /* Enable clicks when open */
+}
+
+/* Sidebar Panel */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #f8f9fa;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.sidebar-overlay.open .sidebar {
+  transform: translateX(0);
+}
+
+/* Optional: Click outside to close */
+.sidebar-overlay.open::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Main content remains unchanged */
+.main-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================ */
+/* Add to your auth styles */
+.auth-container .success {
+  color: #4caf50;
+  margin: 10px 0;
+}
+
+.forgot-password-button {
+  background: none !important;
+  border: none !important;
+  color: #000000 !important;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 10px 0 !important;
+}
+
+.forgot-password-button:hover {
+  color: rgb(97, 90, 201) !important;
+}
+
+.auth-link.backtologin {
+  padding: 20px 0px;
+  background: none;
+  color: #4caf50;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-link.backtologin:hover {
+  color: rgb(97, 90, 201);
+}
+
+.auth-container input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.auth-container button {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+p.create-new-account {
+  margin-top: 15px;
+  text-align: center;
+}
+.auth-container button.create-new-account {
+  padding: 10px 20px;
+  background: none;
+  background-color: #c5c5c5;
+  color: #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-container button.create-new-account:hover {
+  background-color: #7c7c7c;
+  color: #ffffff;
+}
+
+/* ===================================== */
+
+.guest {
+  margin-top: 60px;
+  text-align: center;
+  width: 100%;
+}
+
+.guest-link {
+  padding: 10px 20px;
+  color: #4caf50;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.guest-link:hover {
+  color: rgb(97, 90, 201) !important;
+}
+
+/* Save Modal Input */
+.modal-input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+p.delete-items {
+  font-size: 16px;
+  margin: 0;
+}
