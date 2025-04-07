@@ -34,7 +34,9 @@ const App = () => {
             {sidebarOpen ? "✕" : "☰"}
           </button>
           <div className="sidebar-toggle-info">
-            <p> {sidebarOpen ? "" : "⮜⮜ History"}</p>
+            <p>
+              <strong> {sidebarOpen ? "" : "<< History"}</strong>
+            </p>
           </div>
 
           {/* Overlay Sidebar */}
