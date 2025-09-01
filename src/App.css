@@ -27,7 +27,7 @@ body {
 
 .history-item {
   -ms-overflow-style: none;
-  scrollbar-width:  none;
+  scrollbar-width: none;
 }
 
 /* WebKit Browsers (Chrome, Safari, Opera) */
